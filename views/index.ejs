@@ -1,0 +1,34 @@
+<div class="author">
+  <h1 class="author__heading">Hi i'm solomon, your favorite Dev</h1>
+  <p class="author__body">
+    I'm a full stack developer from the beautiful city of Freetown, Sierra
+    Leone. I love
+  </p>
+</div>
+
+<img
+  src="/img/solomon.jpg"
+  alt="solomon"
+  class="hero-image"
+  width="981"
+  height="528"
+/>
+<section class="article">
+  <h2 class="article__heading">Latest Posts</h2>
+
+  <ul class="article-ul">
+    <% data.forEach(blog => { %>
+    <li>
+      <a href="/post/<%= blog._id %>">
+        <span><%= blog.title %></span>
+        <span class="article-list__date"><%=  blog.createdAt %></span>
+      </a>
+    </li>
+    <% }) %>
+  </ul>
+
+<% if (typeof nextPage !== 'undefined' && nextPage !== null) { %>
+  <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Post</a>
+<% } %>
+
+</section>
