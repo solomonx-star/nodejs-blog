@@ -3,6 +3,9 @@ require('dotenv').config();
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const MongoStore = require('connect-mongo');
+const session = require('express-session');
 // const blogRoutes = require('./server/route/main')
 
 // express
@@ -29,10 +32,22 @@ app.set('layout', './layouts/main')
 app.set('view engine', 'ejs')
 // app.use(blogRoutes)
 app.use(express.json());
+app.use(cookieParser())
+
+app.use(session({
+  secret: "secret",
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI,
+  }),
+  // cookie: {maxAge: new Date (Date.now() + (3600000))}
+}))
 
 
 
 app.use('/', require('./server/route/main'))
+app.use('/', require('./server/route/admin'))
 
 // port
 
