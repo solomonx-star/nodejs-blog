@@ -174,7 +174,7 @@ border: 2px solid var(--black);
 
 .article__heading {
     margin-top: 4rem;
-    font-weight: 400;
+    font-weight: 200;
 }
 
 .article-ul {
@@ -307,7 +307,7 @@ border: 2px solid var(--black);
     line-height: 2;
 }
 
-.admin-post li {
+.admin-posts li {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
@@ -316,16 +316,15 @@ border: 2px solid var(--black);
 .data__title {
     padding: 20px 0;
     font-weight: 600;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
 }
 
 .data__body {
-    font-size: var(--font-size-md);
+    font-size: 15px;
     text-align: center;
 }
 
 .post {
     margin-top: 20px;
     padding: 20px 0;
-
 }

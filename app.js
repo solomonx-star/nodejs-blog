@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
+const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo');
@@ -33,6 +34,7 @@ app.set('view engine', 'ejs')
 // app.use(blogRoutes)
 app.use(express.json());
 app.use(cookieParser())
+app.use(methodOverride('_method')) // simulate DELETE and POST requests
 
 app.use(session({
   secret: "secret",
